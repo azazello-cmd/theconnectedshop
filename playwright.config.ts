@@ -36,7 +36,23 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        // Використовуємо реальний розмір вікна
+        viewport: null,
+        deviceScaleFactor: undefined,
+        // Повноекранний режим
+        launchOptions: {
+          args: [
+            '--start-maximized',
+            '--disable-web-security',
+            '--disable-features=VizDisplayCompositor',
+            '--force-device-scale-factor=1',
+            '--high-dpi-support=1',
+            '--force-color-profile=srgb'
+          ]
+        }
+      },
     },
 
     // {
