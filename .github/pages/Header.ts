@@ -16,7 +16,6 @@ export class Header {
         this.profileIcon = page.locator('svg.icon-account').nth(1)
         this.cartIcon = page.locator('svg.icon-cart');
 
-
     }
     async checklogoLink() {
 

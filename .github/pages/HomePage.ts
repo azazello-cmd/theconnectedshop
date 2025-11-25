@@ -8,7 +8,7 @@ export class HomePages {
         this.page = page;
     }
     async openHomePage() {
-
+        
         await this.page.goto('/')
         await expect (this.page).toHaveURL('/')
         await expect (this.page).toHaveTitle('The Connected Shop - Smart Locks, Smart Sensors, Smart Home & Office')
