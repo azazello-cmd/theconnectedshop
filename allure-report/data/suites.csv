@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","3843","Check search","chromium","Thu Nov 27 18:24:24 EET 2025","passed","Thu Nov 27 18:24:28 EET 2025","checkHomepage","homePage.spec.ts","",""
+"","3832","Check logo","chromium","Thu Nov 27 18:24:24 EET 2025","passed","Thu Nov 27 18:24:28 EET 2025","checkHomepage","homePage.spec.ts","",""

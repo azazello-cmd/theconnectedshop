@@ -1,6 +1,7 @@
 import { test, Page, expect } from '@playwright/test';
 
-export class HomePages {
+
+export class HomePage {
 
     readonly page: Page;
 

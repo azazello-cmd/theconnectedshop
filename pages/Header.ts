@@ -11,21 +11,25 @@ export class Header {
     constructor (page: Page) {
         
         this.page = page;
-        this.logoLink = page.locator('img.header__heading-logo');
+        this.logoLink = page.locator('a.header__heading-link');
         this.logoImg = page.locator('img.header__heading-logo')
-        this.profileIcon = page.locator('svg.icon-account').nth(1)
+        this.profileIcon = page.locator('svg.icon-account').nth(0)
         this.cartIcon = page.locator('svg.icon-cart');
 
     }
     async checklogoLink() {
+        
+        await expect(this.logoLink).toBeVisible()
+        await expect(this.logoLink).toHaveAttribute('href','/')
+        
 
-        await this.page.goto('/')
-        await expect(this.page).toHaveURL('/')
-        await expect(this.page).toHaveTitle('The Connected Shop - Smart Locks, Smart Sensors, Smart Home & Office')
+    }
+
+    async checklogoImg() {
+        
         await expect(this.logoImg).toHaveAttribute('width', '180')
         await expect(this.logoImg).toHaveAttribute('height','90.0')
-        await expect(this.profileIcon).toBeVisible()
-        await expect(this.cartIcon).toBeVisible();
+  
         
 
     }

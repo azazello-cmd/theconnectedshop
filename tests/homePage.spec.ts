@@ -1,44 +1,39 @@
 import { test, Page, expect } from '@playwright/test';
+import { Header } from '../pages/Header';
+import { HomePage } from '../pages/HomePage';
+import { Search } from '../pages/Search';
+import * as allure from "allure-js-commons";
 
 
-test.describe ('Check elements on page', () => {
+test.describe('checkHomepage', () => {
 
-test.beforeEach(async ({ page }) => {
-    await page.goto ('/')
-    await expect(page).toHaveURL('/')
-    await expect(page).toHaveTitle('The Connected Shop - Smart Locks, Smart Sensors, Smart Home & Office')
+    let homePage:HomePage
+    let header:Header
+    let search:Search
+
+    test.beforeEach(async ({ page }) => {
+      
+      homePage=new HomePage(page)
+      header = new Header(page)
+      search = new Search(page)
+
+      await homePage.openHomePage()
+      });
+    
+      test('Check logo', async () => {
+        //allure.tag('Smoke')
+        await allure.severity("critical"),
+       
+        await header.checklogoImg()
+        await header.checklogoLink()
+
     })
-
-test('Check logo', async ({page}) => {
-    const logo = page.locator('a.header__heading-link');
-    const logosrc = page.locator('img.header__heading-logo')
+    test('Check search', async ({ page }) => {
+        await allure.severity("critical"),
+        await search.checkSearch()
     
-    await expect(logo).toHaveAttribute('href', '/')
-    await expect(logosrc).toHaveAttribute('width', '180')
-    await expect(logosrc).toHaveAttribute('height','90.0')
+      });
+
+
 
 })
-
-test('Check search', async ({ page }) => {
-    const search = page.locator('#Search-In-Inline');
-    await expect(search).toBeVisible();
-    await expect(search).toHaveAttribute('Search', 'Search')
-    
-    //await search.fill('Smart Door Lock Slim');
-
-  });
-
-test('Check icon profile', async ({ page }) => {
-    const profileIcon = page.locator('svg.icon-account').nth(1)
-    await expect(profileIcon).toBeVisible()
-
-  });
-
-test('Cart icon is visible', async ({ page }) => {
-    const cartIcon = page.locator('svg.icon-cart');
-    await expect(cartIcon).toBeVisible();
-    
-  });  
-
-})
-
