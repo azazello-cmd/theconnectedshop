@@ -1,4 +1,6 @@
 import { Locator, Page, expect } from '@playwright/test';
+import { text } from 'stream/consumers';
+import { fillElement } from '../utils/globalFuction';
 
 export class Search {
 
@@ -16,6 +18,13 @@ export class Search {
         await expect(this.search).toHaveAttribute('placeholder', 'Search')
         
 
+    }
+
+
+    async fillImput(value: string) {
+
+        await fillElement(this.search, value, 'SearchImput') 
+        
     }
 
 

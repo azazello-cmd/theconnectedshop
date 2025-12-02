@@ -10,6 +10,7 @@ test.describe('checkHomepage', () => {
     let homePage:HomePage
     let header:Header
     let search:Search
+    const textVal = 'Smart Door Lock'
 
     test.beforeEach(async ({ page }) => {
       
@@ -29,8 +30,10 @@ test.describe('checkHomepage', () => {
 
     })
     test('Check search', async ({ page }) => {
-        await allure.severity("critical"),
-        await search.checkSearch()
+        
+      await allure.severity("critical"),
+      await search.checkSearch()
+      await search.fillImput(textVal)
     
       });
 
