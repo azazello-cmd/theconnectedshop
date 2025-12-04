@@ -13,7 +13,7 @@ export class Header {
         this.page = page;
         this.logoLink = page.locator('a.header__heading-link');
         this.logoImg = page.locator('img.header__heading-logo')
-        this.profileIcon = page.locator('svg.icon-account').nth(0)
+        this.profileIcon = page.locator('svg.icon-account').nth(1)
         this.cartIcon = page.locator('svg.icon-cart');
 
     }
