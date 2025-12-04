@@ -1,31 +1,38 @@
 import { Locator, Page, expect } from '@playwright/test';
-import { text } from 'stream/consumers';
-import { fillElement } from '../utils/globalFuction';
 
 export class Search {
 
     readonly page: Page;
     readonly search: Locator;
+    readonly productCart: Locator;
 
     constructor (page: Page) {
         
         this.page = page;
         this.search = page.locator('#Search-In-Inline');
+        this.productCart = page.locator('.predictive-search__item__title, .card__heading, .font-heading-bold').first();
     }
+    
     async checkSearch() {
-
-        //await expect(this.search).toBeVisible();
         await expect(this.search).toHaveAttribute('placeholder', 'Search')
-        
-
     }
 
-
-    async fillImput(value: string) {
-
-        await fillElement(this.search, value, 'SearchImput') 
-        
+    async fillElement(value: string) {
+        await expect(this.search).toHaveAttribute('placeholder', 'Search');
+        await this.search.fill(value, { force: true });
+        await expect(this.search).toHaveValue(value);
     }
 
+    async fillInputAndPressEnter(value: string) {
+        await this.fillElement(value);
+        await expect(this.search).toHaveValue(value);
+        await this.page.keyboard.press('Enter');
+    }
+
+    async checkProductCart(value: string) {
+        await this.fillElement(value);
+        await expect(this.search).toHaveValue(value);
+        await expect(this.productCart).toBeVisible();
+    }
 
 }

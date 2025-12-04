@@ -30,7 +30,14 @@ export class Header {
         await expect(this.logoImg).toHaveAttribute('width', '180')
         await expect(this.logoImg).toHaveAttribute('height','90.0')
   
-        
+    }
+
+    async checkProfileIcon() {
+        await expect(this.profileIcon).toBeVisible();
+    }
+
+    async checkCartIcon() {
+        await expect(this.cartIcon).toBeVisible();
 
     }
 
