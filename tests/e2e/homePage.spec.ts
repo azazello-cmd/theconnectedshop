@@ -1,8 +1,8 @@
 import { test, Page, expect } from '@playwright/test';
-import { Header } from '../pages/Header';
-import { HomePage } from '../pages/HomePage';
-import { Search } from '../pages/Search';
-import { Contacts } from '../pages/Contacts';
+import { Header } from '../../pages/Header';
+import { HomePage } from '../../pages/HomePage';
+import { Search } from '../../pages/Search';
+import { Contacts } from '../../pages/Contacts';
 import * as allure from "allure-js-commons";
 
 
@@ -65,7 +65,6 @@ test.describe('checkHomepage', () => {
 
     test('Fill contact form', async () => {
         await allure.severity("critical"),
-        
         await contacts.clickContactLink()
         
         const testName = 'Ivan';
