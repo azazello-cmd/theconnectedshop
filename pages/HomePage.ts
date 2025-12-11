@@ -17,3 +17,36 @@ export class HomePage {
     }
 
 }
+
+
+
+// header: Header;
+ 
+//   constructor(page) {
+//     super(page);
+//     this.header = new Header(page);
+//   }
+
+//   await home.open();
+//   await home.header.search('Smart Lock');
+
+
+
+//   Різниця між:
+ 
+// locator()
+ 
+// page.locator()
+ 
+// page.getByRole()
+ 
+// page.getByTestId()
+
+
+data-testid попросити фронтів додати data-testid до кожного елементу сторінки data-testid !!!! 
+
+
+
+Приклад використання: page.getByTestId('')
+acra
+
