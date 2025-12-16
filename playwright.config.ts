@@ -28,7 +28,14 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: 'https://theconnectedshop.com',
+    // baseURL: 'https://theconnectedshop.com',
+    baseURL: 'https://dev.emeli.in.ua',
+    extraHTTPHeaders: {
+      Authorization:
+        'Basic ' +
+        Buffer.from('admin:Engineer_123').toString('base64'),
+      'Content-Type': 'application/json'
+    },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -56,6 +63,7 @@ export default defineConfig({
         }
       },
     },
+
 
     // {
     //   name: 'firefox',
